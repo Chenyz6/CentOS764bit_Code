@@ -1,2 +1,2 @@
-# CentOS764bit_Code
-CentOS764bit_Code
+# Ubuntu_Code
+Ubuntu_Code
