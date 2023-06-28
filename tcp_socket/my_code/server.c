@@ -4,7 +4,7 @@
 #include <ctype.h>  // toupper()
 #include <unistd.h>   // STDOUT_FILENO
 
-#define SERVER_IP "192.0.0.1"
+#define SERVER_IP "127.0.0.1"
 #define SERVER_PORT 8888
 
 int main()
@@ -12,7 +12,7 @@ int main()
 	int sfd, cfd, res; 
 	struct sockaddr_in server_addr,client_addr;	
 	socklen_t clientLen = sizeof(client_addr);
-	char buf[1024];	
+	char buf[1024], client_IP[256];	
 
 	sfd = socket(AF_INET,SOCK_STREAM,0);
 	if(sfd == -1)
@@ -23,7 +23,7 @@ int main()
 	server_addr.sin_family = AF_INET;
 	server_addr.sin_port = htons(8888);
 	server_addr.sin_addr.s_addr = htonl(INADDR_ANY);
-	res = bind(sfd,(struct socketaddr *)&server_addr,sizeof(server_addr));
+	res = bind(sfd,(struct socketaddr *)&server_addr,sizeof(server_addr)); 
 	if(res == -1)
 	{
 		fprintf(stderr, "bind error!");
@@ -40,6 +40,10 @@ int main()
 	{
 		fprintf(stderr, "accept error!");		
 	}
+    printf("ip:%s,port:%d\n", 
+		inet_ntop(AF_INET, &client_addr.sin_addr.s_addr, client_IP, sizeof(client_IP)),
+		ntohs(client_addr.sin_port));
+	printf("123456");
 	
 	while(1)
 	{
