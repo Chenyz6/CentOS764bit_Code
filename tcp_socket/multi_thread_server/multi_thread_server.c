@@ -56,7 +56,11 @@ int main(  )
 	pthread_t tid;
 
 	sfd = socket(AF_INET, SOCK_STREAM, 0);
-	
+
+	int opt = 1;
+	setsockopt(sfd, SOL_SOCKET, SO_REUSEADDR, (void *)&opt, sizeof(opt));
+
+
 	server_addr.sin_family = AF_INET;
 	server_addr.sin_port = htons(SOCKET_PORT);
 	server_addr.sin_addr.s_addr = htonl(INADDR_ANY);
