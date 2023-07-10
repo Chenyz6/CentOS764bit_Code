@@ -23,7 +23,7 @@ int main()
 	server_addr.sin_family = AF_INET;
 	server_addr.sin_port = htons(8888);
 	server_addr.sin_addr.s_addr = htonl(INADDR_ANY);
-	res = bind(sfd,(struct socketaddr *)&server_addr,sizeof(server_addr)); 
+	res = bind(sfd,(struct socketaddr *)&server_addr, sizeof(server_addr)); 
 	if(res == -1)
 	{
 		fprintf(stderr, "bind error!");
