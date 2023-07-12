@@ -36,7 +36,7 @@ int main()
     if(epfd == -1)
         perror("epoll_create error!");
 
-    temp.events = EPOLLIN;
+    temp.events = EPOLLIN | EPOLLET;
     temp.data.fd = listenfd;
     res = epoll_ctl(epfd, EPOLL_CTL_ADD, listenfd, &temp);
     if(res == -1)
@@ -66,7 +66,7 @@ int main()
                                 inet_ntop(AF_INET, &clientaddr.sin_addr.s_addr, ip, sizeof(ip)),
                                 ntohs(clientaddr.sin_port));
 
-                temp.events = EPOLLIN;
+                temp.events = EPOLLIN | EPOLLET;
                 temp.data.fd = connectfd;
                 res = epoll_ctl(epfd, EPOLL_CTL_ADD, connectfd, &temp);
                 if(res == -1)
