@@ -60,7 +60,7 @@ int main()
                 	
 				int flag = fcntl(connectfd, F_GETFL);
 				flag |= O_NONBLOCK;
-				fcntl(connectfd, F_SETFL, flag);
+				fcntl(connectfd, F_SETFL, flag); 
 
 				printf("Client IP:%s, PORT:%d\n",
                                 inet_ntop(AF_INET, &clientaddr.sin_addr.s_addr, ip, sizeof(ip)),

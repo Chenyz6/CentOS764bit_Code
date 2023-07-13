@@ -22,7 +22,7 @@ int main()
     clientaddr.sin_port = htons(PORT);
     inet_pton(AF_INET, IP, &clientaddr.sin_addr.s_addr);
 
-    bind(clientfd, (struct sockaddr *)&clientaddr, sizeof(clientaddr));
+    //bind(clientfd, (struct sockaddr *)&clientaddr, sizeof(clientaddr));    // invalidity
 
     while (1)
     {
