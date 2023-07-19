@@ -1,6 +1,7 @@
 {
     "files.associations": {
         "epoll_server": "c",
-        "stddef.h": "c"
+        "stddef.h": "c",
+        "event.h": "c"
     }
 }

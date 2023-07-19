@@ -10,7 +10,7 @@
 // 对操作处理函数
 void read_cb(evutil_socket_t fd, short what, void *arg)
 {
-    // 读管道
+    // 读管道    char buf[1024] = {0};
     char buf[1024] = {0};
     
     int len = read(fd, buf, sizeof(buf));
@@ -31,8 +31,8 @@ int main(int argc, const char* argv[])
     mkfifo("myfifo", 0664);
 
     // open file
-    //int fd = open("myfifo", O_RDONLY | O_NONBLOCK);
-    int fd = open("myfifo", O_RDONLY);
+    int fd = open("myfifo", O_RDONLY | O_NONBLOCK);
+    //int fd = open("myfifo", O_RDONLY);
     if(fd == -1)
     {
         perror("open error");
