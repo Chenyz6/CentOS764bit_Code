@@ -14,6 +14,8 @@
 
 #define MAXSIZE 2000
 
+extern int alphasort(const void*,const void*);
+
 void send_error(int cfd, int status, char *title, char *text)
 {
 	char buf[4096] = {0};
