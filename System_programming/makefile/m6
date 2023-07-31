@@ -3,7 +3,7 @@ obj = $(patsubst ./src/%.c, ./obj/%.o, $(src))  # ./obj/add.o ./obj/sub.o ...
 
 inc_path=./inc
 
-myArgs= -Wall -g 
+myArgs= -Wall -g
 
 
 ALL:a.out
